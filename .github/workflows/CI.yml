@@ -39,4 +39,4 @@ jobs:
           token: ${{ secrets.PAT }}
           repository: seungwoo-ji/argocd-node-app-config
           event-type: new-image
-          client-payload: '{"image": "${{env.DOCKERHUB_REPO}}:latest"}'
+          client-payload: '{"image": "${{env.DOCKERHUB_REPO}}:${{ github.run_number }}"}'
