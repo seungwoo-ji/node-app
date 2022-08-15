@@ -32,6 +32,8 @@ jobs:
 
       # Starting Workflow 2 to update K8s manifest
       - name: Repository Dispatch
+        env:
+          DOCKERHUB_REPO: 116376195/examplenode-dev
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT }}
