@@ -30,11 +30,11 @@ jobs:
           push: true
           tags: ${{env.DOCKERHUB_REPO}}:${{ github.run_number }}, ${{ env.DOCKERHUB_REPO }}:latest
 
-    # Starting Workflow 2 to update K8s manifest
-    - name: Repository Dispatch
-      uses: peter-evans/repository-dispatch@v1
-      with:
-        token: ${{ secrets.PAT }}
-        repository: seungwoo-ji/argocd-node-app-config
-        event-type: new-image
-        client-payload: '{"image": "${{env.DOCKERHUB_REPO}}:latest"}'
+      # Starting Workflow 2 to update K8s manifest
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          repository: seungwoo-ji/argocd-node-app-config
+          event-type: new-image
+          client-payload: '{"image": "${{env.DOCKERHUB_REPO}}:latest"}'
